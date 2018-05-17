@@ -1,4 +1,4 @@
-package com.example;
+package com.example.demo.kafka;
 
 import org.apache.kafka.clients.producer.*;
 import org.slf4j.Logger;
@@ -8,7 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 public class Producer extends Thread {
-    private Logger logger = LoggerFactory.getLogger(App.class);
+    private Logger logger = LoggerFactory.getLogger(Producer.class);
     private  KafkaProducer<Integer,String> prod;
     private  String topic;
     private Boolean isAsync;
