@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    stream:
+      default-binder: kafka1
+      binders:
+        kafka1:
+          type: kafka
+          enviroment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: kafka1:9092
