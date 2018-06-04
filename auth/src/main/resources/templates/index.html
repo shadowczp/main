@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+</head>
+<body>
+<button href="/hello" onclick="getJwt()">sss</button>
+<script>
+    function getJwt() {
+        $.ajax({
+            url:"/hello",
+            type:"GET",
+            dataType:"json",
+            success: function (res) {
+                $.ajax({
+                    url:"/auth",
+                    type:"GET",
+                    dataType:"json",
+                    headers:{
+                        "Authorization":"Basic "+res.jwt
+                    },
+                    success: function (res) {
+                        alert(res);
+                    }
+                });
+            }
+        });
+    }
+</script>
+</body>
+</html>
