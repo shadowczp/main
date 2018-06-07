@@ -17,4 +17,12 @@ public class TestController {
         result.setData(map);
         return result;
     }
+    @RequestMapping("/api/tt")
+    public Object tt()throws Exception{
+        throw new Exception("sshsh");
+    }
+    @RequestMapping("/tt")
+    public Object tt2()throws Exception{
+        throw new Exception("sshsh");
+    }
 }
