@@ -18,9 +18,8 @@ import java.io.IOException;
 public class ExceptionController {
     @ExceptionHandler(Exception.class)
     public Object errorHandler(HttpServletRequest request, HttpServletResponse response, Exception e) {
-        System.out.println("cuowu");
         log.error(e.getMessage());
-        e.printStackTrace();
+//        e.printStackTrace();
         if (isAjax(request)) {
             return ResultUtil.error("请求发生了错误", null);
         } else {
@@ -35,9 +34,5 @@ public class ExceptionController {
     public boolean isAjax(HttpServletRequest request) {
         return request.getRequestURL().toString().contains("/api/");
     }
-    @RequestMapping("/ajax/error")
-    @ResponseBody
-    public ResultBean ajaxError(){
-        return ResultUtil.error("请求发生了错误", null);
-    }
+
 }
